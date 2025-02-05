@@ -2,6 +2,7 @@ import pioneer_sdk
 import cv2
 import socket
 import pickle
+import struct
 
 camera = pioneer_sdk.Camera(timeout=2, video_buffer_size=250000, log_connection=False)
 
