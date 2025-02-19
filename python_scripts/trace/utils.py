@@ -8,4 +8,4 @@ def start(drone):
 def finish(drone):
     drone.land()
     time.sleep(2)
-    drone.disarm()
+    # drone.disarm()
