@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Загрузка изображения
-image = cv2.imread('qwe.png')
+image = cv2.imread('red.png')
 
 lr1 = np.array([0, 100, 100])
 ur1 = np.array([10, 255, 255])
