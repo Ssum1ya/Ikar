@@ -1,10 +1,11 @@
 import cv2
 import numpy as np
 
+# Создаём функцию которая принимает в себя кадр с камеры и возвращает кадр с выделенными красными обьектами
 def get_red_object(im):
     image = cv2.imread(im)
 
-    hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)  # преобразует в цвет в че то там
+    hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) # BGR -> HSV
 
     lr1 = np.array([0, 100, 100])
     ur1 = np.array([10, 255, 255])
@@ -32,4 +33,5 @@ def get_red_object(im):
     height = int(image.shape[0] * scale_percent / 100)
     dim = (width, height)
     resized_image = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
+
     return resized_image
