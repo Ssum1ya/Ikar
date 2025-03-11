@@ -1,5 +1,6 @@
 import pioneer_sdk
 import time
+import cv2
 
 from detect_red_colour import get_red_object
 
@@ -45,8 +46,7 @@ go_to_point(0.6, 0)
 time.sleep(3)
 image = camera.get_frame()
 red_detect_image = get_red_object(image)
-with open('Южноуральск.jpg', 'wb') as file:
-    file.write(bytes(red_detect_image)) #если выдаст ошибку надо оставить просто file.write(red_detect_image)
+cv2.imwrite('Южноуральск.jpg', red_detect_image)
 
 # 2 строчки снизу это от 3 города до мчс
 # go_to_point(0, 0.2)

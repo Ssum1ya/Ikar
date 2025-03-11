@@ -1,9 +1,13 @@
 import cv2
 import numpy as np
 
+"""
+Функция созданна на основе файла tigranDetectRedColour
+"""
+
 # Создаём функцию которая принимает в себя кадр с камеры и возвращает кадр с выделенными красными обьектами
 def get_red_object(im):
-    image = cv2.imread(im)
+    image = im
 
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) # BGR -> HSV
 
@@ -28,10 +32,4 @@ def get_red_object(im):
             radius = int(radius)
             cv2.circle(image, center, radius, (255, 255, 255), 2)
 
-    scale_percent = 50
-    width = int(image.shape[1] * scale_percent / 100)
-    height = int(image.shape[0] * scale_percent / 100)
-    dim = (width, height)
-    resized_image = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
-
-    return resized_image
+    return image
