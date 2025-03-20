@@ -1,6 +1,10 @@
 from pioneer_sdk import Pioneer
 import time
 
+"""
+Код на икаре который пролетел нормально
+"""
+
 mini = Pioneer()
 
 def land_takeoff():

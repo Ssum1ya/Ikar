@@ -1,6 +1,10 @@
 import pioneer_sdk
 import time
 
+"""
+Пролёт по 2 аркам(хрень)
+"""
+
 def first_arc(drone):
     drone.go_to_local_point_body_fixed(x=0, y=0, z=-0.5, yaw=0)
     time.sleep(3)

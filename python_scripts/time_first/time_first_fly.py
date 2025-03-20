@@ -5,6 +5,7 @@ import cv2
 from detect_red_colour import get_red_object
 
 """
+НЕ РАБОЧИЙ
 Принцип такой что мы летим до города
 затем останавливаемся на некоторое время
 потом берём кадр с камеры у дрона и записываем в файл.
@@ -29,16 +30,14 @@ mini.go_to_local_point_body_fixed(0,0, 0.3, 0)
 go_to_point(0, 1)
 time.sleep(3)
 image = camera.get_frame()
-with open('Верхнеуральск.jpg', 'wb') as file:
-    file.write(image)
+cv2.imwrite('Verhneuralsk.jpg', image)
 
 # 2 город
 go_to_point(-1.35, 0)
 go_to_point(0, 0.8)
 time.sleep(3)
 image = camera.get_frame()
-with open('Магнитогорск.jpg', 'wb') as file:
-    file.write(bytes(image))
+cv2.imwrite('Magnitogorsk.jpg', image)
 
 # 3 город
 go_to_point(0, -1.4)
@@ -46,7 +45,7 @@ go_to_point(0.6, 0)
 time.sleep(3)
 image = camera.get_frame()
 red_detect_image = get_red_object(image)
-cv2.imwrite('Южноуральск.jpg', red_detect_image)
+cv2.imwrite('Yuzhnouralsk.jpg', red_detect_image)
 
 # 2 строчки снизу это от 3 города до мчс
 # go_to_point(0, 0.2)
