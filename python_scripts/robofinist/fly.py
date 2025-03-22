@@ -23,7 +23,6 @@ aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 aruco_params = cv2.aruco.DetectorParameters()
 aruco_detector = cv2.aruco.ArucoDetector(aruco_dict, aruco_params)
 
-
 pioneerMini.arm()
 time.sleep(2)
 pioneerMini.takeoff()
@@ -32,9 +31,6 @@ pioneerMini.go_to_local_point_body_fixed(x=0, y=0, z=0.3, yaw=0)
 time.sleep(3)
 
 last_aruco = -1
-# map = {1: [1, 1.5, 0 ,0],
-#        2: [0, -1.5, 0 ,0],
-#        3: [0, 2, 0 ,0]}
 
 while True:
     while len(data) < payload_size:
@@ -84,21 +80,31 @@ while True:
                 time.sleep(5)
                 last_aruco = 0
             if normalId == 3 and last_aruco == 0:
-                pioneerMini.go_to_local_point_body_fixed(x=-0.7, y=1.3, z=0, yaw=0)
+                pioneerMini.go_to_local_point_body_fixed(x=-0.7, y=1.5, z=0, yaw=0)
                 time.sleep(5)
                 last_aruco = 3
             if normalId == 1 and last_aruco != normalId:
-                pioneerMini.go_to_local_point_body_fixed(x=0.7, y=0, z=0, yaw=0)
+                #pioneerMini.go_to_local_point_body_fixed(x=1, y=0, z=0, yaw=0)
+                pioneerMini.go_to_local_point_body_fixed(x=0.5, y=0.7, z=0, yaw=0)
                 time.sleep(5)
                 last_aruco = 1
+            if normalId == 5 and last_aruco != normalId:
+                pioneerMini.go_to_local_point_body_fixed(x=0.7, y=-0.7, z=0, yaw=0)
+                time.sleep(5)
+                last_aruco = 5
             if normalId == 2 and last_aruco != normalId:
-                pioneerMini.go_to_local_point_body_fixed(x=-0.5, y=-2.6, z=0, yaw=0)
+                pioneerMini.go_to_local_point_body_fixed(x=-1.2, y=-3, z=0, yaw=0) # -0.5 -2.6
                 time.sleep(5)
                 last_aruco = 2
             if normalId == 4 and last_aruco != normalId:
-                pioneerMini.go_to_local_point_body_fixed(x=0.7, y=0, z=0, yaw=0)
+                #pioneerMini.go_to_local_point_body_fixed(x=0.8, y=0, z=0, yaw=0)
+                pioneerMini.go_to_local_point_body_fixed(x=0.5, y=-0.8, z=0, yaw=0)
                 time.sleep(5)
                 last_aruco = 4
+            if normalId == 6 and last_aruco != normalId:
+                pioneerMini.go_to_local_point_body_fixed(x=0.5, y=0.8, z=0, yaw=0)
+                time.sleep(5)
+                last_aruco = 6
 
     key = cv2.waitKey(1)
 
